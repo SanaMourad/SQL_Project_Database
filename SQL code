@@ -1,0 +1,125 @@
+CREATE TABLE Patients
+(
+  pname VARCHAR(55) NOT NULL,
+  patient_ssn VARCHAR(10) NOT NULL,
+  DoB DATE NOT NULL,
+  sex VARCHAR(5) NOT NULL,
+  date_of_the_first_visit DATE NOT NULL,
+  phoneNum VARCHAR(15) NOT NULL,
+  address VARCHAR(255) NOT NULL,
+  email VARCHAR(30) NOT NULL,
+  Blood_type VARCHAR(4) NOT NULL,
+  PRIMARY KEY (patient_ssn)
+);
+
+CREATE TABLE Doctors
+(
+  doctor_ssn VARCHAR(10) NOT NULL,
+  dname VARCHAR(55) NOT NULL,
+  DoB DATE NOT NULL,
+  sex VARCHAR(5) NOT NULL,
+  phoneNum VARCHAR(15) NOT NULL,
+  address VARCHAR(255) NOT NULL,
+  email VARCHAR(30) NOT NULL,
+  specialization VARCHAR(15) NOT NULL,
+  salary FLOAT NOT NULL,
+  PRIMARY KEY (doctor_ssn)
+);
+
+CREATE TABLE Rooms
+(
+  room_num INT NOT NULL,
+  rname VARCHAR(55) NOT NULL,
+  type VARCHAR(55) NOT NULL,
+  PRIMARY KEY (room_num)
+);
+
+CREATE TABLE Appointments
+(
+  appointment_num INT NOT NULL,
+  adate DATE NOT NULL,
+  appointment_time VARCHAR(10) NOT NULL,
+  appointment_type VARCHAR(55) NOT NULL,
+  room_num INT NOT NULL,
+  PRIMARY KEY (appointment_num),
+  FOREIGN KEY (room_num) REFERENCES Rooms(room_num)
+);
+
+CREATE TABLE Prescriptions
+(
+  prescription_num INT NOT NULL,
+  drug_name VARCHAR(55) NOT NULL,
+  active_substance VARCHAR(55) NOT NULL,
+  doses VARCHAR(55) NOT NULL,
+  appointment_num INT NOT NULL,
+  patient_ssn VARCHAR(10) NOT NULL,
+  PRIMARY KEY (prescription_num),
+  FOREIGN KEY (appointment_num) REFERENCES Appointments(appointment_num),
+  FOREIGN KEY (patient_ssn) REFERENCES Patients(patient_ssn)
+);
+
+CREATE TABLE assigned
+(
+  patient_ssn VARCHAR(10) NOT NULL,
+  appointment_num INT NOT NULL,
+  PRIMARY KEY (patient_ssn, appointment_num),
+  FOREIGN KEY (patient_ssn) REFERENCES Patients(patient_ssn),
+  FOREIGN KEY (appointment_num) REFERENCES Appointments(appointment_num)
+);
+
+CREATE TABLE is_managed
+(
+  doctor_ssn VARCHAR(10) NOT NULL,
+  appointment_num INT NOT NULL,
+  PRIMARY KEY (doctor_ssn, appointment_num),
+  FOREIGN KEY (doctor_ssn) REFERENCES Doctors(doctor_ssn),
+  FOREIGN KEY (appointment_num) REFERENCES Appointments(appointment_num)
+);
+
+CREATE TABLE Staff
+(
+  staff_ssn VARCHAR(10) NOT NULL,
+  name VARCHAR(55) NOT NULL,
+  DoB DATE NOT NULL,
+  sex VARCHAR(10) NOT NULL,
+  phoneNum VARCHAR(15) NOT NULL,
+  address VARCHAR(255) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  position VARCHAR(55) NOT NULL,
+  salary INT NOT NULL,
+  appointment_num INT NOT NULL,
+  PRIMARY KEY (staff_ssn),
+  FOREIGN KEY (appointment_num) REFERENCES Appointments(appointment_num)
+);
+
+CREATE TABLE is_supervised
+(
+  room_num INT NOT NULL,
+  staff_ssn VARCHAR(10) NOT NULL,
+  PRIMARY KEY (room_num, staff_ssn),
+  FOREIGN KEY (room_num) REFERENCES Rooms(room_num),
+  FOREIGN KEY (staff_ssn) REFERENCES Staff(staff_ssn)
+);
+
+
+
+
+
+Data Insertion
+In this step, Five experimental records have been added to every table in order to test the performance of the system:
+
+Data insertion for Patients table:
+INSERT INTO Patients (pname, patient_ssn, DoB, sex, date_of_the_first_visit, phoneNum, address, email, Blood_type)
+VALUES ('Sara Ahmad', '1111111111', '09-09-2001', 'male', '01-01-2023', '0798976546', '123 Main St', 'patient1@example.com', 'O+');
+
+INSERT INTO Patients (pname, patient_ssn, DoB, sex, date_of_the_first_visit, phoneNum, address, email, Blood_type)
+VALUES ('Dareen Abdallah', '2222222222', '09-09-2002', 'f', '01-02-2023', '0798976540’, '456 Main St', 'patient2@example.com', 'A+');
+
+INSERT INTO Patients (pname, patient_ssn, DoB, sex, date_of_the_first_visit, phoneNum, address, email, Blood_type)
+VALUES ('Samia luma', '3333333333', '09-08-2002', 'male', '02-02-2023', '0798976541', '789 Main St', 'patient3@example.com', 'B+');
+
+INSERT INTO Patients (pname, patient_ssn, DoB, sex, date_of_the_first_visit, phoneNum, address, email, Blood_type)
+VALUES ('jouhn mcdonalds', '4444444444', '09-07-2002', 'f', '03-02-2023', '0798976542', '321 Main St', 'patient4@example.com', 'AB+');
+
+INSERT INTO Patients (pname, patient_ssn, DoB, sex, date_of_the_first_visit, phoneNum, address, email, Blood_type)
+VALUES ('anas muhammad’, '5555555555', '09-06-2002', 'male', '04-02-2023', '0798976545', '654 Main St', 'patient5@example.com', 'O-');
