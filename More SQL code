@@ -1,0 +1,191 @@
+Data insertion for Patients table:
+INSERT INTO Patients (pname, patient_ssn, DoB, sex, date_of_the_first_visit, phoneNum, address, email, Blood_type)
+VALUES ('Sara Ahmad', '1111111111', '09-09-2001', 'male', '01-01-2023', '0798976546', '123 Main St', 'patient1@example.com', 'O+');
+
+INSERT INTO Patients (pname, patient_ssn, DoB, sex, date_of_the_first_visit, phoneNum, address, email, Blood_type)
+VALUES ('Dareen Abdallah', '2222222222', '09-09-2002', 'f', '01-02-2023', '0798976540’, '456 Main St', 'patient2@example.com', 'A+');
+
+INSERT INTO Patients (pname, patient_ssn, DoB, sex, date_of_the_first_visit, phoneNum, address, email, Blood_type)
+VALUES ('Samia luma', '3333333333', '09-08-2002', 'male', '02-02-2023', '0798976541', '789 Main St', 'patient3@example.com', 'B+');
+
+INSERT INTO Patients (pname, patient_ssn, DoB, sex, date_of_the_first_visit, phoneNum, address, email, Blood_type)
+VALUES ('jouhn mcdonalds', '4444444444', '09-07-2002', 'f', '03-02-2023', '0798976542', '321 Main St', 'patient4@example.com', 'AB+');
+
+INSERT INTO Patients (pname, patient_ssn, DoB, sex, date_of_the_first_visit, phoneNum, address, email, Blood_type)
+VALUES ('anas muhammad’, '5555555555', '09-06-2002', 'male', '04-02-2023', '0798976545', '654 Main St', 'patient5@example.com', 'O-');
+
+ 
+
+Data insertion for Doctors table:
+INSERT INTO Doctors (doctor_ssn, dname, DoB, sex, phoneNum, address, email, specialization, salary)
+VALUES ('0111111111', 'Anas', '04-02-1997', 'm', '0771234567', '123 Main St', 'doctor1@example.com', 'Surgery', 100000);
+
+INSERT INTO Doctors (doctor_ssn, dname, DoB, sex, phoneNum, address, email, specialization, salary)
+VALUES ('0222222222', 'hamzeh', '04-02-1998', 'f', '0771234567', '456 Main St', 'doctor2@example.com', 'Pediatrics', 80000);
+
+INSERT INTO Doctors (doctor_ssn, dname, DoB, sex, phoneNum, address, email, specialization, salary)
+VALUES ('0333333333', 'saeed', '04-02-1996', 'm', '0771234566', '789 Main St', 'doctor3@example.com', 'OB/GYN', 90000);
+
+INSERT INTO Doctors (doctor_ssn, dname, DoB, sex, phoneNum, address, email, specialization, salary)
+VALUES ('0444444444', 'salma', '04-07-1997', 'f', '0771234565', '321 Main St', 'doctor4@example.com', 'Cardiology', 110000);
+
+INSERT INTO Doctors (doctor_ssn, dname, DoB, sex, phoneNum, address, email, specialization, salary)
+VALUES ('0555555555', 'basema', '04-02-1996', 'm', '0771234564', '654 Main St', 'doctor5@example.com', 'Dermatology', 95000);
+
+ 
+
+Data insertion for Rooms table:
+INSERT INTO Rooms (room_num, rname, type)
+VALUES (1, 'Room 1', 'Private');
+
+INSERT INTO Rooms (room_num, rname, type)
+VALUES (2, 'Room 2', 'Private');
+
+INSERT INTO Rooms (room_num, rname, type)
+VALUES (3, 'Room 3', 'Semi-Private');
+
+INSERT INTO Rooms (room_num, rname, type)
+VALUES (4, 'Room 4', 'Semi-Private');
+
+INSERT INTO Rooms (room_num, rname, type)
+VALUES (5, 'Room 5', 'Public');
+
+
+ 
+
+Data insertion for Appointments table:
+INSERT INTO Appointments (appointment_num, adate, appointment_time, appointment_type, room_num)
+VALUES (1, '04-02-2022', '09:00', 'Check-up', 1);
+
+INSERT INTO Appointments (appointment_num, adate, appointment_time, appointment_type, room_num)
+VALUES (2, '04-03-2022', '10:00', 'Surgery', 2);
+
+INSERT INTO Appointments (appointment_num, adate, appointment_time, appointment_type, room_num)
+VALUES (3, '08-02-2022', '11:00', 'Physical Therapy', 3);
+
+INSERT INTO Appointments (appointment_num, adate, appointment_time, appointment_type, room_num)
+VALUES (4, '04-05-2022', '12:00', 'Consultation', 4);
+
+INSERT INTO Appointments (appointment_num, adate, appointment_time, appointment_type, room_num)
+VALUES (5, '04-02-2023', '13:00', 'Follow-up', 5);
+
+ 
+
+Data insertion for Staff table:
+INSERT INTO Staff (staff_ssn, name, DoB, sex, phoneNum, address, email, position, salary, appointment_num)
+VALUES ('1111111111', 'Staff 1', '04-02-2000', 'm', '1111111111', '123 Main St', 'staff1@example.com', 'Nurse', 60000, 1);
+
+INSERT INTO Staff (staff_ssn, name, DoB, sex, phoneNum, address, email, position, salary, appointment_num)
+VALUES ('2222222222', 'Staff 2', '04-02-2001', 'f', '2222222222', '456 Main St', 'staff2@example.com', 'Receptionist', 40000, 2);
+
+INSERT INTO Staff (staff_ssn, name, DoB, sex, phoneNum, address, email, position, salary, appointment_num)
+VALUES ('3333333333', 'Staff 3', '04-08-2000', 'm', '3333333333', '789 Main St', 'staff3@example.com', 'Lab Technician', 50000, 3);
+
+INSERT INTO Staff (staff_ssn, name, DoB, sex, phoneNum, address, email, position, salary, appointment_num)
+VALUES ('4444444444', 'Staff 4', '09-02-2001', 'f', '4444444444', '321 Main St', 'staff4@example.com', 'Janitor', 30000, 4);
+
+INSERT INTO Staff (staff_ssn, name, DoB, sex, phoneNum, address, email, position, salary, appointment_num)
+VALUES ('5555555555', 'Staff 5', '04-05-2000', 'm', '5555555555', '654 Main St', 'staff5@example.com', 'Billing Specialist', 45000, 5);
+
+
+ 
+
+Data insertion for Prescriptions table:
+INSERT INTO Prescriptions (prescription_num, drug_name, active_substance, doses, appointment_num, patient_ssn)
+VALUES (1, 'Ibuprofen', 'Ibuprofen', '200mg', 1, '123-45-6789');
+
+INSERT INTO Prescriptions (prescription_num, drug_name, active_substance, doses, appointment_num, patient_ssn)
+VALUES (2, 'Amoxicillin', 'Amoxicillin', '500mg', 2, '234-56-7890');
+
+INSERT INTO Prescriptions (prescription_num, drug_name, active_substance, doses, appointment_num, patient_ssn)
+VALUES (3, 'Acetaminophen', 'Acetaminophen', '325mg', 3, '345-67-8901');
+
+INSERT INTO Prescriptions (prescription_num, drug_name, active_substance, doses, appointment_num, patient_ssn)
+VALUES (4, 'Lisinopril', 'Lisinopril', '10mg', 4, '456-78-9012');
+
+INSERT INTO Prescriptions (prescription_num, drug_name, active_substance, doses, appointment_num, patient_ssn)
+VALUES (5, 'Atorvastatin', 'Atorvastatin', '20mg', 5, '567-89-0123');
+ 
+
+Data insertion for assigned table:
+INSERT INTO assigned (patient_ssn, appointment_num) VALUES ('2222222222',1);
+INSERT INTO assigned (patient_ssn, appointment_num) VALUES ('3333333333',2);
+INSERT INTO assigned (patient_ssn, appointment_num) VALUES ('4444444444',3);
+INSERT INTO assigned (patient_ssn, appointment_num) VALUES ('5555555555',4);
+INSERT INTO assigned (patient_ssn, appointment_num) VALUES ('1111111111',5);
+ 
+
+Data insertion for is_managed table:
+INSERT INTO is_managed (doctor_ssn, appointment_num) VALUES ('0111111111', 5);
+INSERT INTO is_managed (doctor_ssn, appointment_num) VALUES ('0555555555', 4);
+INSERT INTO is_managed (doctor_ssn, appointment_num) VALUES ('0444444444', 3);
+INSERT INTO is_managed (doctor_ssn, appointment_num) VALUES ('0333333333', 2);
+INSERT INTO is_managed (doctor_ssn, appointment_num) VALUES ('0222222222', 1);
+
+
+ 
+
+Data insertion for is_supervised table:
+
+INSERT INTO is_supervised (room_num, staff_ssn) VALUES (1, '1111111111');
+INSERT INTO is_supervised (room_num, staff_ssn) VALUES (2, '2222222222');
+INSERT INTO is_supervised (room_num, staff_ssn) VALUES (3, '3333333333');
+INSERT INTO is_supervised (room_num, staff_ssn) VALUES (4, '4444444444');
+INSERT INTO is_supervised (room_num, staff_ssn) VALUES (5, '5555555555');
+
+ 
+
+Data Deletion
+In this step, Five experimental records have been deleted:
+
+DELETE FROM  Prescriptions
+WHERE drug_name='Atorvastatin';
+ 
+
+DELETE FROM  Prescriptions
+WHERE drug_name='Amoxicillin';
+ 
+
+DELETE FROM is_managed 
+WHERE appointment_num=2; 
+
+DELETE FROM assigned
+WHERE appointment_num=2; 
+
+DELETE FROM Appointments
+WHERE appointment_num=2;
+ 
+Data Modification
+In this step, Three experimental records have been modified:
+Salary update for the doctor with SSN='0111111111'
+UPDATE Doctors
+SET salary=9000
+WHERE doctor_ssn='0111111111';
+ 
+
+
+
+Appointment time update for Appointment number 1:
+UPDATE Appointments
+SET appointment_time='10:30'
+WHERE appointment_num=1;
+ 
+
+
+
+Table Joins
+This join query will retrieve the patients' names, the doctors' names, and the date of the appointment for each patient, where the join conditions are met.
+
+SELECT patients.pname, doctors.dname, appointments.adate
+FROM patients
+JOIN assigned ON patients.patient_ssn = assigned.patient_ssn
+JOIN appointments ON assigned.appointment_num = appointments.appointment_num
+JOIN is_managed ON appointments.appointment_num = is_managed.appointment_num
+JOIN doctors ON is_managed.doctor_ssn = doctors.doctor_ssn;
+
+
+This join query will retrieve the total salaries of the doctors and the staff.
+
+SELECT sum(Staff.salary) as Total_Staff_Salary,sum(Doctors.salary) as Total_Doctors_Salary
+FROM Staff 
+FULL OUTER JOIN Doctors 
